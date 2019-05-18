@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Document } from './document.model';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'cms-documents',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./documents.component.css']
 })
 export class DocumentsComponent implements OnInit {
+  selectedDocument: Document;
 
   constructor() { }
 

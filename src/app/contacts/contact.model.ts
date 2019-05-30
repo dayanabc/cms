@@ -1,4 +1,6 @@
-export class Contact{
+import { Injectable } from '@angular/core';
+
+export class Contact {
 
     constructor(
         public contactId: number,
@@ -6,7 +8,7 @@ export class Contact{
         public email: string,
         public phone: string,
         public imageUrl: string,
-        public group: string){ 
+        public group: Contact[]) {
 
     }
 

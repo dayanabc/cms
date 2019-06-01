@@ -1,17 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5">
-      <cms-document-list>
-
-      </cms-document-list>
+      <cms-document-list></cms-document-list>
     </div>
     <div class="col-md-6">
-      <cms-document-detail *ngIf="selectedDocument;
-        else inforText" [document]="selectedDocument">
-      </cms-document-detail>
-      <ng-template #infoText>
-
-      </ng-template>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

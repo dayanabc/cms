@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Document } from './document.model';
 import { from } from 'rxjs';
 import { DocumentsService } from './documents.service';

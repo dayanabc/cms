@@ -2,14 +2,19 @@ import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '
 import { Message } from '../message.model';
 import { MessagesService } from '../messages.service';
 
+//import { MessageListComponent } from '../message-list/message-list.component';
+
 @Component({
   selector: 'cms-message-edit',
   templateUrl: './message-edit.component.html',
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
+  currentSender: number = 1;
   @ViewChild('subject') subjectRef: ElementRef;
   @ViewChild('msgText') msgTextRef: ElementRef;
+  //@ViewChild('msgSender') msgSender: ElementRef;
+  //@Output() newMessage = new EventEmitter<Message>();
 
   constructor(private messageService: MessagesService) { }
 
@@ -18,9 +23,11 @@ export class MessageEditComponent implements OnInit {
 
   onSendMessage() {
     const subjectContent = this.subjectRef.nativeElement.value;
-    const msgContent = this.msgTextRef.nativeElement.value;
-    const addNewMessage = new Message(1, subjectContent, msgContent, 1);
+    const textContent = this.msgTextRef.nativeElement.value;
+    //const currentSender = this.msgSender.nativeElement.value;
+    const addNewMessage = new Message(1, subjectContent, textContent, this.currentSender);
     this.messageService.addMessage(addNewMessage);
+
     this.onClear();
   }
 
@@ -28,5 +35,4 @@ export class MessageEditComponent implements OnInit {
     this.subjectRef.nativeElement.value = '';
     this.msgTextRef.nativeElement.value = '';
   }
-
 }
